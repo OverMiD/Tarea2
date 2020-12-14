@@ -1,0 +1,47 @@
+<div class="limiter">
+  
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100 mb-4">
+        <form>
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Nombre del restaurante" [(ngModel)]="nombre" name="nombre" #nombreText="ngModel" (keyup.enter)="agregar()" required>
+              <div class="mt-2 ml-2" *ngIf="nombreText.errors?.required">
+                <h6><strong>Es necesario llenar este campo.</strong></h6>
+              </div>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Ciudad" [(ngModel)]="ciudad" name="ciudad" #ciudadText="ngModel" (keyup.enter)="agregar()" required>
+              <div class="mt-2 ml-2" *ngIf="ciudadText.errors?.required">
+                <h6><strong>Es necesario llenar este campo.</strong></h6>
+              </div>
+            </div>
+            <div class="col">
+             <button class="btn btn-info" type="submit">Agregar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="table100">
+        <table (items)="items">
+          <thead>
+            <tr class="table100-head">
+              <th class="column1">Restaurante</th>
+              <th class="column2">Ciudad</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let items of items">
+                <td class="column1">{{items.nombre}}</td>
+                <td class="column2">{{items.ciudad}}</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
